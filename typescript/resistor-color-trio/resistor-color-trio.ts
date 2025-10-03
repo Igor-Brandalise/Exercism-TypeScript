@@ -20,15 +20,22 @@ const format = d1 * 10 + d2
 
 const valor = format * (10 ** d3)
 
-  if(valor < 1000){
-    return valor + " ohms"
-  }
+if(valor >= 1000000000){
+  return valor/1000000000 + " gigaohms"
+}
 
-  if(valor >= 1000){
-    return valor/1000 + " kiloohms"
-  }
+if(valor >= 1000000){
+  return valor/1000000 + " megaohms"
+}
 
+if(valor >= 1000){
+  return valor/1000 + " kiloohms"
+}
 
+if(valor < 1000){
+  return valor + " ohms"
+}
+  
 }
 
 decodedResistorValue(["orange", "red", "black"]);
